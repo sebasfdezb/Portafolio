@@ -171,7 +171,7 @@ nav .logo{
 		position: absolute;
 		width: 100%;
 		background: #000;
-		color: #fff;
+		color: #ffffff;
 		left: 0;
 		top: 100%;
 		text-align: center;
@@ -195,5 +195,53 @@ nav .logo{
 	}
 	.show-menu{
 		max-height: 60px;
+	}
+}
+
+/* Header Content */
+
+@media only screen and (max-width: 600px){
+	.header{
+		min-height: auto;
+		padding: 0;
+	}
+	.user-img{
+		width: 100%;
+		right: auto;
+		position: relative;
+		margin-top: 100px;
+	}
+	.header-content{
+		position: absolute;
+		bottom: 0;
+		padding: 0 10%;
+		z-index: 2;
+		padding-bottom: 40px;
+		background: linear-gradient(transparent, #1e1e1e);
+	}
+	.btn-container{
+		margin: 5px 0;
+	}
+	.header button{
+		font-size: 14px;
+		margin-right: 10px;
+	}
+	.btn-dark{
+		padding: 7px 7px 7px 20px;
+		margin-bottom: 10px;
+	}
+	.btn-dark img{
+		width: 30px;
+		padding: 5px;
+		margin-left: 15px;
+	}
+	.btn-light img{
+		width: 12px;
+		margin-left: 5px;
+	}
+	.header h1{
+		font-size: 70px;
+		line-height: 60px;
+		margin-bottom: 20px;
 	}
 }
