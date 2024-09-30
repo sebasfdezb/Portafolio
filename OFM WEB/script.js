@@ -12,3 +12,4 @@ window.onscroll = function() {
         navbar.style.background = 'transparent';
     }
 };
+
