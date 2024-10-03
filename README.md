@@ -4,10 +4,10 @@
 <h2 align="center">🛠️ Tecnologías y Herramientas</h2>
 <p>En mis proyectos, he trabajado con:</p>
 
-- HTML y CSS para el diseño y la estructura de las páginas
-- JavaScript para la interactividad y dinamismo
-- Bases de datos como MongoDB y MySQL para el manejo de datos
-- Git y GitHub para control de versiones y colaboración en proyectos
+- <strong>HTML y CSS</strong> para el diseño y la estructura de las páginas
+- <strong>JavaScript</strong> para la interactividad y dinamismo
+- Bases de datos como <strong>MySQL</strong> para el manejo de datos
+- <strong>Git y GitHub</strong> para control de versiones y colaboración en proyectos
 
 <h2 align="center">📫 Contáctame</h2>
 <p>Si tienes alguna pregunta o quieres colaborar en un proyecto, no dudes en contactarme ➡️ <strong>sebasfdezb@gmail.com</strong></p>
