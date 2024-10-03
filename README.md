@@ -10,4 +10,4 @@
 - Git y GitHub para control de versiones y colaboración en proyectos
 
 <h2 align="center">📫 Contáctame</h2>
-<p>Si tienes alguna pregunta o quieres colaborar en un proyecto, no dudes en contactarme <strong>sebasfdezb@gmail.com</strong></p>
+<p>Si tienes alguna pregunta o quieres colaborar en un proyecto, no dudes en contactarme ➡️<strong>sebasfdezb@gmail.com</strong></p>
