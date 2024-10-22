@@ -1,5 +1,14 @@
+#ifndef BLOCKCHAIN_H
+# define BLOCKCHAIN_H
+
 typedef int 	hash;
 typedef char	*trans;
+
+# include <stdio.h>
+# include <search.h>
+# include <stdlib.h>
+# include <string.h>
+# include <time.h>
 
 typedef struct block
 {
@@ -8,19 +17,4 @@ typedef struct block
 	trans	transaction;
 }block_t;
 
-typedef struct
-{
-	block_t	info;
-}DATA;
-
-
-typedef struct node
-{
-	DATA		data;
-	struct node* next;
-}NODE;
-
-NODE*	add(NODE* node, DATA data);
-void	print_list(NODE* head);
-NODE	*reverse(NODE * node);
-void	get_list_transactions(NODE* head,unsigned char *list_trans);
+#endif
