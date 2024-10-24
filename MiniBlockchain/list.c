@@ -1,4 +1,5 @@
 #include "list.h"
+#include "blockchain.h"
 
 NODE * reverse(NODE * node)
 {
@@ -24,17 +25,17 @@ void init(NODE **head)
 NODE* add(NODE* node, DATA data)
 {
 	NODE	*aux;
-	
+
 	aux = (NODE *)malloc(sizeof(NODE));
 	if (!aux)
-		return ;
+		exit(0);
 	aux->data = data;
 	aux->next = node;
 	node = aux;
 	return (node);
 }
 
-void print_list(NODE* head)
+void ft_print_list(NODE* head)
 {
 	NODE	*tmp;
 	int		i;
@@ -44,15 +45,16 @@ void print_list(NODE* head)
 	printf("Chain\n");
 	printf("-------\n");
 	tmp = head;
-	while (tmp->next != NULL)
+	while (tmp != NULL)
 	{
-		printf("%*sPrevious hash\t%d\n", indent,"", temp->data.info.previous_block_hash);
-        printf("%*sBlock hash\t%d\n", indent,"", temp->data.info.block_hash);
-        printf("%*sTransaction\t%s\n", indent,"", temp->data.info.transactions);
+		printf("%*sPrevious hash\t%d\n", i,"", tmp->data.info.hash_previous);
+        printf("%*sBlock hash\t%d\n", i,"", tmp->data.info.hash_block);
+        printf("%*sTransaction\t%s\n", i,"", tmp->data.info.transaction);
         printf("%*s\n", i, "");
+		tmp = tmp->next;
 		i = i + 2;
 	}
-	printf(\n);
+	printf("\n");
 }
 
 void add_at(NODE* node, DATA data) {
@@ -60,7 +62,7 @@ void add_at(NODE* node, DATA data) {
 	
 	aux = (NODE*) malloc(sizeof (NODE));
     if (aux == NULL) {
-        exit(EXIT_FAILURE); // no memory available
+        exit(EXIT_FAILURE);
     }
     aux->data = data;
     aux->next = node->next;

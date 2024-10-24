@@ -1,8 +1,11 @@
-#include "blockhain.h"
+#include "blockchain.h"
+#include "list.h"
+
+char *party_name[MAX_PARTIES] = {"SEBAS", "EMPRESA", "CLIENTE"};
 
 char	*ft_strcat(char *s1, char *s2)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 0;
@@ -18,10 +21,12 @@ char	*ft_strcat(char *s1, char *s2)
 	return (s1);
 }
 
-static party_code get_vote()
+static t_partycode	get_vote(void)
 {
-    int r = rand();
-    return (r % MAX_PARTIES);
+	int	r;
+
+	r = rand();
+	return (r % MAX_PARTIES);
 }
 
 int	string_to_hash(void *str)
@@ -39,34 +44,43 @@ int	string_to_hash(void *str)
 	return (result);
 }
 
-
-int main(int argc, char **argv)
+void	init_blocks(NODE **head, int *previous_block_hash, t_trans *trans_list)
 {
-	srand(time(NULL));
-	NODE	*head;
-	DATA	genesis_elem;
-	trans	genesis_trans;
-	trans	t;
-	trans	trans_list;
+	t_trans	genesis_trans;
 	block_t	genesis_block;
+	DATA	genesis_elem;
+
+	genesis_trans = party_name[get_vote()];
+	genesis_block.hash_previous = 0;
+	genesis_block.hash_block = string_to_hash(genesis_trans);
+	genesis_block.transaction = genesis_trans;
+
+	genesis_elem.info = genesis_block;
+	*head = add(*head, genesis_elem);
+	*previous_block_hash = genesis_elem.info.hash_previous;
+	*trans_list = (t_trans)malloc(sizeof(char) * NVOTES * 10);
+}
+
+
+int	main(void)
+{
+	NODE	*head;
+	t_trans	trans_list;
+	t_trans	t;
 	int		i;
 	int		previous_block_hash;
 	DATA	*el;
 	block_t	*b;
 
+	srand(time(NULL));
 	init(&head);
-	genesis_trans = {party_name[get_vote()]};
-	genesis_block = {0, string_to_hash(genesis_trans), genesis_trans};
-	genesis_elem.info = genesis_block;
-	head = add(head, genesis_elem);
-	previous_block_hash = genesis_element.info.hash_previous;
-	trans_list = (trans)malloc(sizeof(char) * NVOTES * 10);
-	i = 0;
-	while (i < NVOTES)
+	init_blocks(&head, &previous_block_hash, &trans_list);
+	i = -1;
+	while (++i < NVOTES)
 	{
 		el = malloc(sizeof(DATA));
 		b = malloc(sizeof(block_t));
-		t = {party_name[get_vote()]};
+		t = party_name[get_vote()];
 		ft_strcat(trans_list, t);
 		b->hash_previous = previous_block_hash;
 		b->hash_block = string_to_hash(trans_list);
@@ -75,6 +89,5 @@ int main(int argc, char **argv)
 		previous_block_hash = b->hash_block;
 		head = add(head, *el);
 	}
-	ft_printlist(head);
-	return (0);
+	ft_print_list(head);
 }
