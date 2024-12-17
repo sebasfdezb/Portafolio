@@ -5,5 +5,5 @@
 <p>📌 <strong>Desactivación al instante:</strong> Vuelve a presionar la tecla <code>T</code> para detenerlo.</p>
 <p>⚡ <strong>Ideal para tareas repetitivas que requieren clics automáticos.</strong></p>
 <h2>Ejecucion</h2>
-```bash
-python autoclicker.py
+<code>python autoclicker.py</code>
+
